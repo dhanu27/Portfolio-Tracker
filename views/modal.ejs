@@ -1,0 +1,18 @@
+<div class="modal" id="my-modal">
+    <div class="modal-content">
+      <h2>Update Trade</h2>
+      <span>Ticker:-&nbsp;<%= i.ticker%> </span><br>
+       <span>Shares till now :-&nbsp;<%= i.share%> </span>
+      <form action="/trade/update/<%= i._id%>" method="POST" >
+         <label for="action"></label>
+          <select id="action" name="action">
+             <option value="buy"> Buy</option>
+             <option value="sell">sell</option>  
+          </select>
+          <input type="number" name="share" placeholder="No. of share">
+          <input type="number" name="price" placeholder="Price">
+          <button type="submit">Update</button>
+       </form>  
+       <div class="close">&times;</div> 
+    </div>
+</div>

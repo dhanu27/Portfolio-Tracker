@@ -1,0 +1,33 @@
+
+      
+        <h1>Portfolio</h1>
+        <div>
+        <form action="/trade/add"method="POST">
+            <input type="text" name="ticker" placeholder="Ticker Name"/>
+            <input type="number" name="price" placeholder="Price"/>
+            <input type="number" name="share" placeholder="Shares"/>
+            <button type="submit">ADD</button>
+        </form>
+       </div>   
+        <table>
+            <tr>
+                <th>Ticker</th>
+                <th>Avg_Buy_Price</th>
+                <th>Share</th>
+                <th>Actions</th>
+            </tr>
+            <% for(i of portfolio) {%>
+               <tr id="">
+                  <td><%= i.ticker%></td>
+                  <td><%= i.avg_buy_price%></td>
+                  <td><%= i.share%></td> 
+                  <td><span><a  class="edit" href="/update/<%= i._id%>" >Edit</a></span>&nbsp;<span><a href="/trade/remove/<%=i._id%>">Delete</a></span></td> 
+               </tr>  
+                <%- include('modal')-%> 
+            <%}%>
+           <tr>
+             <th colspan="3">Total Return</th>
+             <th><%= returns%></th>  
+           <tr>     
+        </table>
+            
